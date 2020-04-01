@@ -1,6 +1,11 @@
 <div>
     <%= @player_one_name%> is battling <%= @player_two_name%>!!!! 
     <%= @player_one_name%> hit points - 100 
+
+    <form action="/attack" method="post">
+        <input type="submit" value="Attack player 2">
+    </form>
+    
     <br>
     <%= @player_two_name%> hit points - 100 
 

@@ -2,6 +2,8 @@ require 'sinatra/base'
 
 class Battle < Sinatra::Base
   enable :sessions
+  set :session_secret, 'super secret'
+
   get '/' do
     erb(:index)
   end
@@ -13,9 +15,7 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    p session[:player_one_name]
     @player_one_name = session[:player_one_name]
-    p @player_one_name
     @player_two_name = session[:player_two_name]
     erb(:names)
   end

@@ -14,4 +14,11 @@ feature 'players enter their names and see them on screen' do
   scenario 'page has a submit button' do
     expect(page).to have_button('submit')
   end
+
+  scenario 'pressing submit button takes you to the /names path' do
+    fill_in 'player-one-name', with: 'Phil'
+    fill_in 'player-two-name', with: 'Ed'
+    click_button('submit')
+    expect(page).to have_current_path('/names')
+  end
 end

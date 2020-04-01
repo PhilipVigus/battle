@@ -19,6 +19,6 @@ feature 'players enter their names and see them on screen' do
     fill_in 'player-one-name', with: 'Phil'
     fill_in 'player-two-name', with: 'Ed'
     click_button('submit')
-    expect(page).to have_current_path('/names')
+    expect(page).to have_current_path('/play')
   end
 end

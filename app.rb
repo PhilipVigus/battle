@@ -25,13 +25,22 @@ class Battle < Sinatra::Base
   post '/attack' do
     @game = $game
     @game.hit(@game.inactive_player)
-    redirect '/attacked'
+    if @game.inactive_player.dead?
+      redirect '/loss'
+    else
+      redirect '/attacked'
+    end
   end
 
   get '/attacked' do
     @game = $game
     @game.switch_player
     erb(:attacked)
+  end
+
+  get '/loss' do
+    @losing_player = @game.inactive_player
+    erb(:loss)
   end
 
   # start the server if ruby file executed directly

@@ -8,13 +8,24 @@
 
 .name-form { 
     background-color: burlywood;
+    font: inherit;
     padding: 20px
 }
 
 .name-form__name-row {
     margin-bottom: 20px;
+    font-size: 4rem;
+}
+
+.name-form__name-input {
+    font-size: 4rem;
+    font-family: 'Courier New', Courier, monospace; 
 }
 
 .name-form__submit-button {
+    font-size: 4rem;
+    font-family: 'Courier New', Courier, monospace; 
     width: 100%;
+    background-color: saddlebrown;
+    padding: 10px;
 }

@@ -11,7 +11,7 @@ describe Player do
     expect(player.hit_points).to eq(Player::DEFAULT_HIT_POINTS)
   end
 
-  it "hitting the player should reduce the hit points by the standard amount" do
+  it "hitting the player reduces the hit points by the standard amount" do
     player.hit
     expect(player.hit_points).to eq(Player::DEFAULT_HIT_POINTS - Player::ATTACK_DAMAGE)
   end

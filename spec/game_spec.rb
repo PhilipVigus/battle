@@ -9,20 +9,25 @@ describe Game do
     Game.new(:player1, :player2)
   end
 
-  it 'has player 1' do
-    expect(subject).to respond_to(:player1)
+  context 'initialization' do
+    it 'creates player 1 when initialized' do
+      expect(subject.player1).to eq(:player1)
+    end
+
+    it 'creates player 2 when initialized' do
+      expect(subject.player2).to eq(:player2)
+    end
   end
 
-  it 'has player 2' do
-    expect(subject).to respond_to(:player2)
-  end
+  context 'tracking the current turn' do
+    it 'player 1 goes first' do
+      expect(subject.current_turn).to eq(:player1)
+    end
 
-  it 'creates player 1 when initialized' do
-    expect(subject.player1).to eq(:player1)
-  end
-
-  it 'creates player 2 when initialized' do
-    expect(subject.player2).to eq(:player2)
+    it 'next_turn switches the current turn player' do
+      expect { subject.switch_turn }
+        .to change { subject.current_turn }.from(:player1).to(:player2)
+    end
   end
 
   it 'wounds a player' do

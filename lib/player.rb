@@ -11,4 +11,8 @@ class Player
   def wound(damage)
     @hit_points -= damage
   end
+
+  def dead?
+    @hit_points <= 0
+  end
 end

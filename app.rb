@@ -6,6 +6,10 @@ class Battle < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
 
+  before do
+    @game = Game.instance
+  end
+
   get '/' do
     erb(:index)
   end
@@ -13,17 +17,15 @@ class Battle < Sinatra::Base
   post '/names' do
     player1 = Player.new(params["player-one-name"])
     player2 = Player.new(params["player-two-name"])
-    $game = Game.new(player1, player2)
+    @game = Game.create(player1, player2)
     redirect '/play'
   end
 
   get '/play' do
-    @game = $game
     erb(:play)
   end
 
   post '/attack' do
-    @game = $game
     @game.hit(@game.inactive_player)
     if @game.inactive_player.dead?
       redirect '/loss'
@@ -33,7 +35,6 @@ class Battle < Sinatra::Base
   end
 
   get '/attacked' do
-    @game = $game
     @game.switch_player
     erb(:attacked)
   end

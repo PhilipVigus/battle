@@ -22,4 +22,12 @@ class Game
   def inactive_player
     @current_player == @player1 ? @player2 : @player1
   end
+
+  def self.instance
+    @current_game
+  end
+
+  def self.create(player1, player2)
+    @current_game = Game.new(player1, player2)
+  end
 end

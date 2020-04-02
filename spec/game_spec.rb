@@ -21,12 +21,12 @@ describe Game do
 
   context 'tracking the current turn' do
     it 'player 1 goes first' do
-      expect(subject.current_turn).to eq(:player1)
+      expect(subject.current_player).to eq(:player1)
     end
 
     it 'next_turn switches the current turn player' do
-      expect { subject.switch_turn }
-        .to change { subject.current_turn }.from(:player1).to(:player2)
+      expect { subject.switch_player }
+        .to change { subject.current_player }.from(:player1).to(:player2)
     end
   end
 

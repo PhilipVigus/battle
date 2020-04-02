@@ -12,7 +12,7 @@ describe Player do
   end
 
   it "hitting the player reduces the hit points by the standard amount" do
-    player.hit
-    expect(player.hit_points).to eq(Player::DEFAULT_HIT_POINTS - Player::ATTACK_DAMAGE)
+    player.wound(10)
+    expect(player.hit_points).to eq(Player::DEFAULT_HIT_POINTS - 10)
   end
 end

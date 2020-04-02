@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/player'
+require './lib/game'
 
 class Battle < Sinatra::Base
   enable :sessions
@@ -22,7 +23,7 @@ class Battle < Sinatra::Base
   end
 
   post '/attack' do
-    $player2.hit
+    Game.new.hit($player2)
     redirect '/attacked'
   end
 

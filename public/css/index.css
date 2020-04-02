@@ -1,0 +1,20 @@
+.name-form-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+}
+
+.name-form { 
+    background-color: burlywood;
+    padding: 20px
+}
+
+.name-form__name-row {
+    margin-bottom: 20px;
+}
+
+.name-form__submit-button {
+    width: 100%;
+}

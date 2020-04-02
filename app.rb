@@ -24,7 +24,13 @@ class Battle < Sinatra::Base
 
   post '/attack' do
     @game = $game
-    @game.hit(@game.player2)
+    
+    if @game.current_player == @game.player1
+      @game.hit(@game.player2)
+    else
+      @game.hit(@game.player1)
+    end
+
     redirect '/attacked'
   end
 

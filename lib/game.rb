@@ -18,4 +18,8 @@ class Game
           @current_player = @player2 :
           @current_player = @player1
   end
+
+  def inactive_player
+    @current_player == @player1 ? @player2 : @player1
+  end
 end
